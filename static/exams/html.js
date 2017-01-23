@@ -1,4 +1,7 @@
 module.exports =  {
+  isPass (res) {
+    return res.wrong < 5
+  },
   question: [
   {
     describe: '下面关于图片标签的 alt 属性的说法正确的是',
@@ -10,5 +13,10 @@ module.exports =  {
     type: 'multiSelect',
     option: ['a', 'image', 'strong', 'h1'],
     answer: ['A', 'B', 'D']
+  },{
+    describe: '请输入%input,xx%input',
+    type: 'text',
+    option: ['a', 'image', 'strong', 'h1'],
+    answer: ['aa', 'bb']
   }]
 }

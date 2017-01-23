@@ -1,47 +1,37 @@
 <template>
   <div class="exam">
     <ol>
-      <li v-for="(item, quesIndex) in question">
-        <h3>{{item.describe}}{{answers['answer-' + quesIndex]}}</h3>
-        <div v-if="item.type === 'select'">
-          <label v-for="(option, index) in item.option" class="">
-            <input type="radio" v-model="answers['answer-' + quesIndex]" :value="index" :name="'answer-' + quesIndex">
-            {{option}}
-          </label>
-        </div>
-      </li>
+      <question v-for="(question, index) in exam.question" :question="question" :index="index"></question>
     </ol>
   </div>
 </template>
 
 <script>
-// var examId = 'html'
-import exam from 'exams/html'
-// console.log(exam)
+import Question from '../question/index'
+import htmlExam from 'exams/html'
 // System.import(`exams/{examId}`).then(function (m) {
 //   console.log(m, examId)
 // })
+
+var examId = 'html'
+var allExam = {
+  htmlExam
+}
+
 export default {
+  components: {
+    Question
+  },
   data () {
     return {
-      question: [],
-      answers: {
-      }
+      exam: {},
+      answers: []
     }
   },
   mounted () {
-    this.question = exam.question
-    var self = this
-    this.question.forEach((item, index) => {
-      self.$set(self.answers, `answer-${index}`, '')
-    })
-    console.log(this.answers)
+    this.exam = allExam[`${examId}Exam`]
   }
 }
 </script>
 
-<style>
-.exam{
-  text-align: left;
-}
-</style>
+
