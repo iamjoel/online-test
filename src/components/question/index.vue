@@ -37,7 +37,7 @@ export default {
     }
   },
   mounted () {
-    var self = this
+    var vm = this
     if (['multiSelect', 'text'].indexOf(this.question.type) !== -1) {
       this.value = []
     }
@@ -45,7 +45,7 @@ export default {
     if (this.question.type === 'text') {
       $(`.question--${this.index} .input`).change(function () {
         var index = $(this).index()
-        self.$set(self.value, index, this.value)
+        vm.$set(vm.value, index, this.value)
       })
     }
   }
