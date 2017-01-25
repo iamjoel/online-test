@@ -4,12 +4,6 @@
       <question v-for="(question, index) in exam.question" :question="question" :index="index" ref="question"></question>
     </ol>
 
-    <!-- 答案信息<br>
-    <ol>
-      <li v-for="answer in answers">
-        {{answer}}
-      </li>
-    </ol> -->
     <h2>结果</h2>
     总共 {{res.total}} <br>
     答对 {{res.right}} <br>

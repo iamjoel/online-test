@@ -17,6 +17,6 @@ module.exports =  {
     describe: '请输入%input,xx%input',
     type: 'text',
     option: ['a', 'image', 'strong', 'h1'],
-    answer: ['aa', 'bb']
+    answer: ['aa', function(input) {return input.indexOf('b') !== -1}]
   }]
 }
